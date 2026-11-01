@@ -357,8 +357,8 @@ function svcs(){var d=T[lang],i=lang==="ar"?0:1;document.getElementById("fs").in
 function ph(){var d=T[lang];document.getElementById("fd").min=new Date(Date.now()+864e5).toISOString().slice(0,10);document.querySelectorAll("[data-p]").forEach(function(e){e.placeholder=d[e.dataset.p]})}
 var WA_NUM="201122524011",CM_KEY=""; /* CM_KEY: مفتاح CallMeBot لإرسال واتساب تلقائي */
 function deliver(f,text,ok,err){
-  f._template="table";
-  fetch("https://formsubmit.co/ajax/mohmoh60123@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(j){if(String(j.success)==="false")throw 0;ok()}).catch(err);
+  var subj=f._subject;delete f._subject;
+  fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.assign({access_key:"f6d3d7b5-ee34-4406-b5ec-982bcd94e3b8",subject:subj,from_name:"Portfolio"},f))}).then(function(r){return r.json()}).then(function(j){if(!j.success)throw 0;ok()}).catch(err);
   if(CM_KEY)fetch("https://api.callmebot.com/whatsapp.php?phone="+WA_NUM+"&apikey="+CM_KEY+"&text="+encodeURIComponent(text),{mode:"no-cors"}).catch(function(){});
 }
 function gv(x){return document.getElementById(x).value}
