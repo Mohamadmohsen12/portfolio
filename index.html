@@ -217,13 +217,42 @@ section{padding:36px 0}
 .pkwrap{gap:16px}
 .links a{padding:10px 18px}
 }
+@media (max-width:700px){
+body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38),transparent 70%),radial-gradient(260px 260px at 96% 100%,rgba(126,0,199,.3),transparent 70%),radial-gradient(200px 200px at 0% 100%,rgba(255,214,0,.16),transparent 70%)}
+.hero::after{width:180px;height:180px;inset-inline-end:-50px;top:0}
+}
+#bgimg{position:fixed;inset:0;z-index:-2;display:none;background-size:cover;background-position:center;pointer-events:none}
+@media (max-width:700px){body::before{background:radial-gradient(360px 360px at -12% 6%,rgba(126,0,199,.4),transparent 70%),radial-gradient(320px 320px at 168% 42%,rgba(255,214,0,.2),transparent 70%),radial-gradient(360px 360px at -10% 82%,rgba(126,0,199,.3),transparent 70%)}}
+.th{cursor:pointer}
+.cmp-wrap{position:relative;margin-top:24px;padding:16px;border-radius:24px;background:var(--glass);border:1px solid var(--gl);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 14px 36px -10px rgba(126,0,199,.5);display:flex;flex-direction:column;align-items:center}
+.cmp-wrap[hidden]{display:none}
+.cmp-x{position:absolute;top:10px;inset-inline-end:10px;z-index:5;width:36px;height:36px;border-radius:50%;border:1px solid var(--gl);background:rgba(10,6,20,.6);color:#fff;cursor:pointer}
+.cmp{position:relative;direction:ltr;width:min(100%,calc(78vh*var(--ar,1.78)));aspect-ratio:var(--ar,1.78);overflow:hidden;border-radius:16px;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize;background:#000;--p:50%}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;display:block}
+.cmp-b{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.cmp-h{position:absolute;top:0;bottom:0;left:var(--p);width:3px;margin-left:-1.5px;background:var(--accent);box-shadow:0 0 14px rgba(255,214,0,.8)}
+.cmp-h i{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--accent);box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.cmp-h i::before{content:"\2194";position:absolute;inset:0;display:grid;place-items:center;color:var(--on-accent);font-size:22px;font-style:normal;font-weight:700}
+.cmp-l{position:absolute;top:10px;padding:3px 12px;border-radius:999px;background:rgba(10,6,20,.65);color:#fff;font-weight:700;font-size:13px}
+.cmp-lb{left:10px}
+.cmp-la{right:10px}
+.cmp.single{cursor:default}
+.cmp.single .cmp-b,.cmp.single .cmp-h,.cmp.single .cmp-l{display:none}
+.totop{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;padding:0;border:1px solid rgba(182,109,255,.55);background:rgba(126,0,199,.38);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);color:#fff;cursor:pointer;box-shadow:0 10px 28px -6px rgba(126,0,199,.7);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .3s,transform .3s,background .25s,color .25s,border-color .25s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:rgba(255,214,0,.85);color:var(--on-accent);border-color:rgba(255,214,0,.9)}
+.wab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;text-decoration:none;background:linear-gradient(135deg,rgba(37,211,102,.95),rgba(18,140,75,.95));border:1px solid rgba(255,255,255,.45);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 28px -6px rgba(37,211,102,.7);animation:wapulse 2.4s infinite;transition:transform .2s}
+.wab:hover{transform:scale(1.1)}
+@keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55),0 10px 28px -6px rgba(37,211,102,.7)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0),0 10px 28px -6px rgba(37,211,102,.7)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),0 10px 28px -6px rgba(37,211,102,.7)}}
+@media (prefers-reduced-motion:reduce){.wab{animation:none}}
 </style>
 </head>
 <body>
+<div id="bgimg"></div>
 <header><div class="navwrap"><span class="nbg"></span><nav class="nav">
   <button id="mb" class="mb" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <div class="nl">
-    <a href="#home" data-i="nHome"></a><a href="#about" data-i="nAbout"></a><a href="#stats" data-i="nExp"></a><a href="#work" data-i="nWork"></a><a href="#pricing" data-i="nPrice"></a><a href="#toolsec" data-i="nTools"></a><a href="cv.pdf" download data-i="nCv"></a><a href="#contact" data-i="nContact"></a>
+    <a href="#home" data-i="nHome"></a><a href="#about" data-i="nAbout"></a><a href="#stats" data-i="nExp"></a><a href="#work" data-i="nWork"></a><a href="#toolsec" data-i="nTools"></a><a href="#pricing" data-i="nPrice"></a><a href="cv.pdf" download data-i="nCv"></a><a href="#contact" data-i="nContact"></a>
   </div>
   <div class="tools">
     <button id="lang" type="button">EN</button>
@@ -261,6 +290,16 @@ section{padding:36px 0}
     <p class="sub" data-i="workP"></p>
     <div class="tabs" id="tabs"></div>
     <div class="marquee" id="rows"></div>
+    <div class="cmp-wrap" id="cmpw" hidden>
+      <button class="cmp-x" id="cmpx" type="button" aria-label="close">✕</button>
+      <div class="cmp single" id="cmp" tabindex="0">
+        <img id="cmpa" alt="">
+        <div class="cmp-b"><img id="cmpb" alt=""></div>
+        <span class="cmp-l cmp-lb" data-i="lblB"></span><span class="cmp-l cmp-la" data-i="lblA"></span>
+        <div class="cmp-h"><i></i></div>
+      </div>
+      <p class="fnote" id="cmpn" hidden></p>
+    </div>
   </section>
 
   <section>
@@ -295,7 +334,7 @@ section{padding:36px 0}
         <label for="fn" data-i="fName"></label><input id="fn" dir="auto" required data-p="fNameP">
         <label for="fe" data-i="fMail"></label><input id="fe" dir="auto" required data-p="fMailP">
         <label for="fs" data-i="fSvc"></label><select id="fs"></select>
-        <label for="fp" data-i="fPk"></label><select id="fp"></select>
+        <div id="fpw"><label for="fp" data-i="fPk"></label><select id="fp"></select></div>
         <label for="fd" data-i="fDate"></label><input id="fd" type="date">
         <p class="fnote" data-i="fDn"></p>
         <label for="ft" data-i="fMsg"></label><textarea id="ft" dir="auto" rows="4" data-p="fMsgP"></textarea>
@@ -305,6 +344,8 @@ section{padding:36px 0}
   </section>
 </main>
 <footer data-i="foot"></footer>
+<button id="totop" class="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<a id="wab" class="wab" href="https://wa.me/201122524011" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/><path d="M9 9.5c.2 1.6 1.3 3.2 3 4.3l1.2-1.2 2 .9-.7 1.2c-2.8.1-6-2.7-5.9-5.4l1.2-.8.9 2z" fill="currentColor" stroke="none"/></svg></a>
 <div id="lb" hidden><button id="lbx" type="button" aria-label="close">✕</button><div id="lbc"></div></div>
 
 <div id="sm" class="modal" hidden><div class="mc"><button id="smx" type="button" class="mx" aria-label="close">✕</button>
@@ -317,11 +358,12 @@ section{padding:36px 0}
 <div id="sdone" hidden><h3>✓</h3><p data-i="sOk"></p></div></div></div>
 
 <script>
+var SHOW_PRICING=false; /* true = قسم الأسعار ظاهر | false = مخفي */
 var T={
-ar:{nHome:"الصفحة الرئيسية",nWork:"أعمالي",nPrice:"الأسعار",nAbout:"نبذة عني",nExp:"خبراتي",nTools:"الأدوات",nCv:"السيرة الذاتية",nContact:"تواصل",cv:"تحميل السيرة الذاتية",start:"ابدأ الآن",ses:"جلسة مجانية",sesT:"اطلب جلسة مجانية",sesP:"نتكلم على Zoom أو Discord أو Google Meet، وأشرحلك تفاصيل شغلك وأسمع فكرتك قبل ما نبدأ.",sesB:"اطلب الجلسة",fPl:"المنصة المفضلة",fPlPh:"اختار المنصة...",fOk:"تم إرسال طلبك ✓",sNote:"ملاحظات (اختياري)",sSend:"إرسال الطلب",sOk:"تم الإرسال، وهنتواصل مع حضرتك في أقرب وقت ممكن لتحديد معاد الجلسة.",fErr:"حصل خطأ في الإرسال، جرّب مرة تانية.",gsT:"ابدأ معايا",gsP:"كل اللي محتاجه عشان أبدأ:",g1:"فكرة التصميم أو العنوان",g1h:"اكتبلي الفكرة أو عنوان الفيديو أو موضوع التصميم.",g2:"النص المطلوب كتابته (اختياري)",g2h:"أي كلام عايزه يظهر على التصميم.",g3:"تصميم مرجعي (اختياري)",g3h:"ابعتلي مثال عاجبك عشان أمشي على نفس الروح.",g4:"الألوان أو الستايل المفضل",g4h:"ألوان معينة أو إحساس عام زي هادي أو جريء.",g5:"ملفات تستخدمها (اختياري)",g5h:"لوجو أو صور أو خطوط عندك.",g6:"موعد التسليم",g6h:"إمتى محتاج التصميم يكون جاهز؟",fT:"ابعتلي رسالة",fName:"اسمك",fMail:"إيميلك أو واتساب",fSvc:"الخدمة",fSvcPh:"اختار الخدمة...",fPk:"الباكج",fPkPh:"اختار الباكج...",fDate:"معاد التسليم المطلوب",fDn:"التسليم بعد 24 ساعة من الطلب. ولو مقدرناش نلتزم بالمعاد هنتواصل مع حضرتك ونعرّف حضرتك بالمعاد المتاح للتسليم.",fMsg:"احكيلي عن مشروعك",fNameP:"اسمك",fMailP:"you@email.com",fMsgP:"لينك القناة، المجال، موضوع الفيديو، أمثلة عاجباك...",fSend:"إرسال الرسالة",fSub:"طلب جديد من البورتفوليو",fNote:"الزرار بيفتح تطبيق الإيميل عندك برسالة جاهزة. لو مفتحش ابعت على:",name:"محمد محسن",role:"جونيور جرافيك ديزاينر في مجال السوشيال ميديا والصور المصغرة لليوتيوب",cta:"تواصل معايا",photo:"مكان صورتك هنا",aboutT:"نبذة عني",aboutP:"مرحباً، أنا محمد محسن، مصمم جرافيك متخصص في الصور المصغرة لليوتيوب وتصاميم السوشيال ميديا، وأصمم أيضاً أغلفة الكتب والمذكرات والتصاميم الإعلانية.\n\nأعمل منذ أكثر من 3 سنوات، وتعاملت مع أكثر من 300 عميل ونفّذت أكثر من 1000 تصميم، وخبرتي الأكبر مع المدرسين والقنوات التعليمية.\n\nأركّز على رفع فرص النقر (CTR) وليس جمال الشكل فقط: عنصر رئيسي واضح، وتباين قوي، ونص قصير يبرز بين عشرات الفيديوهات.\n\nأصمم كل عمل من الصفر دون قوالب جاهزة باستخدام Photoshop وIllustrator وInDesign، وأحرص على الرد السريع والتسليم في موعده.",s1:"عميل",s2:"سنين خبرة",s3:"تصميم",workT:"أعمالي",workP:"أي مجال، كل تصميم مبني عشان يلفت النظر.",toolsT:"الأدوات",toolsP:"البرامج اللي بشتغل بيها.",priceT:"الأسعار",contactT:"خلينا نشتغل سوا",contactP:"اختار الطريقة الأنسب للتواصل.",wa:"واتساب",fb:"فيسبوك",ig:"إنستجرام",be:"بيهانس",ds:"ديسكورد",foot:"© 2026 محمد محسن",pr:["بوست سوشيال ميديا","صورة مصغرة ليوتيوب","غلاف كتاب أو ملزمة","تصميم إعلاني"],pv:"السعر هنا"},
-en:{nHome:"Home",nWork:"My work",nPrice:"Pricing",nAbout:"About me",nExp:"Experience",nTools:"Tools",nCv:"CV",nContact:"Contact",cv:"Download CV",start:"Get started",ses:"Free session",sesT:"Request a free session",sesP:"We talk on Zoom, Discord or Google Meet, and I go through the details of your project and hear your idea before we start.",sesB:"Request a session",fPl:"Preferred platform",fPlPh:"Choose a platform…",fOk:"Request sent ✓",sNote:"Notes (optional)",sSend:"Send request",sOk:"Sent. We will contact you as soon as possible to set the session time.",fErr:"Something went wrong, please try again.",gsT:"Get started",gsP:"All I need to get started:",g1:"Your design idea or title",g1h:"Tell me the idea, video title or topic of the design.",g2:"Text to include (optional)",g2h:"Any wording you want on the design.",g3:"Reference design (optional)",g3h:"Send an example you like so I can match the feel.",g4:"Preferred colors or style",g4h:"Specific colors or a general mood, calm or bold.",g5:"Assets to use (optional)",g5h:"Logo, photos or fonts you already have.",g6:"Your deadline",g6h:"When do you need the design ready?",fT:"Send me a message",fName:"Your name",fMail:"Email or WhatsApp",fSvc:"Service",fSvcPh:"Choose a service…",fPk:"Package",fPkPh:"Choose a package…",fDate:"Requested delivery date",fDn:"Delivery starts 24 hours after the order. If we cannot meet your date, we will contact you with the earliest available date.",fMsg:"Tell me about your project",fNameP:"Your name",fMailP:"you@email.com",fMsgP:"Channel link, niche, topic, style references…",fSend:"Send message",fSub:"New request from portfolio",fNote:"This button opens your email app with a ready message. If it does not open, write to:",name:"Mohamed Mohsen",role:"Junior graphic designer in social media and YouTube thumbnails",cta:"Contact me",photo:"Your photo goes here",aboutT:"About me",aboutP:"Hello, I’m Mohamed Mohsen, a graphic designer specializing in YouTube thumbnails and social media designs, and I also design book and study-material covers and ads.\n\nI have been working for over 3 years, with more than 300 clients and more than 1000 designs delivered, mostly with teachers and educational channels.\n\nI focus on raising click-through rate (CTR), not only on looks: a clear main element, strong contrast, and short text that stands out among dozens of videos.\n\nI design every piece from scratch without templates, using Photoshop, Illustrator and InDesign, and I reply fast and deliver on time.",s1:"Clients",s2:"Years of experience",s3:"Designs",workT:"My work",workP:"Any niche, every design is built to stand out.",toolsT:"Tools",toolsP:"The software I work with.",priceT:"Pricing",contactT:"Let’s work together",contactP:"Pick the way that suits you best.",wa:"WhatsApp",fb:"Facebook",ig:"Instagram",be:"Behance",ds:"Discord",foot:"© 2026 Mohamed Mohsen",pr:["Social media post","YouTube thumbnail","Book or study-notes cover","Ad design"],pv:"Price here"}
+ar:{nHome:"الصفحة الرئيسية",nWork:"أعمالي",nPrice:"الأسعار",nAbout:"نبذة عني",nExp:"خبراتي",nTools:"الأدوات",nCv:"السيرة الذاتية",nContact:"تواصل",cv:"تحميل السيرة الذاتية",start:"ابدأ الآن",ses:"جلسة مجانية",sesT:"اطلب جلسة مجانية",sesP:"نتكلم على Zoom أو Discord أو Google Meet، وأشرحلك تفاصيل شغلك وأسمع فكرتك قبل ما نبدأ.",sesB:"اطلب الجلسة",fPl:"المنصة المفضلة",fPlPh:"اختار المنصة...",fOk:"تم إرسال طلبك ✓",lblB:"قبل",lblA:"بعد",waMsg:"مرحباً، عندي استفسار عن خدمات التصميم.",sNote:"ملاحظات (اختياري)",sSend:"إرسال الطلب",sOk:"تم الإرسال، وهنتواصل مع حضرتك في أقرب وقت ممكن لتحديد معاد الجلسة.",fErr:"حصل خطأ في الإرسال، جرّب مرة تانية.",gsT:"ابدأ معايا",gsP:"كل اللي محتاجه عشان أبدأ:",g1:"فكرة التصميم أو العنوان",g1h:"اكتبلي الفكرة أو عنوان الفيديو أو موضوع التصميم.",g2:"النص المطلوب كتابته (اختياري)",g2h:"أي كلام عايزه يظهر على التصميم.",g3:"تصميم مرجعي (اختياري)",g3h:"ابعتلي مثال عاجبك عشان أمشي على نفس الروح.",g4:"الألوان أو الستايل المفضل",g4h:"ألوان معينة أو إحساس عام زي هادي أو جريء.",g5:"ملفات تستخدمها (اختياري)",g5h:"لوجو أو صور أو خطوط عندك.",g6:"موعد التسليم",g6h:"إمتى محتاج التصميم يكون جاهز؟",fT:"ابعتلي رسالة",fName:"اسمك",fMail:"إيميلك أو واتساب",fSvc:"الخدمة",fSvcPh:"اختار الخدمة...",fPk:"الباكج",fPkPh:"اختار الباكج...",fDate:"معاد التسليم المطلوب",fDn:"التسليم بعد 24 ساعة من الطلب. ولو مقدرناش نلتزم بالمعاد هنتواصل مع حضرتك ونعرّف حضرتك بالمعاد المتاح للتسليم.",fMsg:"احكيلي عن مشروعك",fNameP:"اسمك",fMailP:"you@email.com",fMsgP:"لينك القناة، المجال، موضوع الفيديو، أمثلة عاجباك...",fSend:"إرسال الرسالة",fSub:"طلب جديد من البورتفوليو",fNote:"الزرار بيفتح تطبيق الإيميل عندك برسالة جاهزة. لو مفتحش ابعت على:",name:"محمد محسن",role:"جونيور جرافيك ديزاينر في مجال السوشيال ميديا والصور المصغرة لليوتيوب",cta:"تواصل معايا",photo:"مكان صورتك هنا",aboutT:"نبذة عني",aboutP:"مرحباً، أنا محمد محسن، مصمم جرافيك متخصص في الصور المصغرة لليوتيوب وتصاميم السوشيال ميديا، وأصمم أيضاً أغلفة الكتب والمذكرات والتصاميم الإعلانية.\n\nأعمل منذ أكثر من 3 سنوات، وتعاملت مع أكثر من 300 عميل ونفّذت أكثر من 1000 تصميم، وخبرتي الأكبر مع المدرسين والقنوات التعليمية.\n\nأركّز على رفع فرص النقر (CTR) وليس جمال الشكل فقط: عنصر رئيسي واضح، وتباين قوي، ونص قصير يبرز بين عشرات الفيديوهات.\n\nأصمم كل عمل من الصفر دون قوالب جاهزة باستخدام Photoshop وIllustrator وInDesign، وأحرص على الرد السريع والتسليم في موعده.",s1:"عميل",s2:"سنين خبرة",s3:"تصميم",workT:"أعمالي",workP:"أي مجال، كل تصميم مبني عشان يلفت النظر.",toolsT:"الأدوات",toolsP:"البرامج اللي بشتغل بيها.",priceT:"الأسعار",contactT:"خلينا نشتغل سوا",contactP:"اختار الطريقة الأنسب للتواصل.",wa:"واتساب",fb:"فيسبوك",ig:"إنستجرام",be:"بيهانس",ds:"ديسكورد",foot:"© 2026 محمد محسن",pr:["بوست سوشيال ميديا","صورة مصغرة ليوتيوب","غلاف كتاب أو ملزمة","تصميم إعلاني"],pv:"السعر هنا"},
+en:{nHome:"Home",nWork:"My work",nPrice:"Pricing",nAbout:"About me",nExp:"Experience",nTools:"Tools",nCv:"CV",nContact:"Contact",cv:"Download CV",start:"Get started",ses:"Free session",sesT:"Request a free session",sesP:"We talk on Zoom, Discord or Google Meet, and I go through the details of your project and hear your idea before we start.",sesB:"Request a session",fPl:"Preferred platform",fPlPh:"Choose a platform…",fOk:"Request sent ✓",lblB:"Before",lblA:"After",waMsg:"Hello, I have a question about your design services.",sNote:"Notes (optional)",sSend:"Send request",sOk:"Sent. We will contact you as soon as possible to set the session time.",fErr:"Something went wrong, please try again.",gsT:"Get started",gsP:"All I need to get started:",g1:"Your design idea or title",g1h:"Tell me the idea, video title or topic of the design.",g2:"Text to include (optional)",g2h:"Any wording you want on the design.",g3:"Reference design (optional)",g3h:"Send an example you like so I can match the feel.",g4:"Preferred colors or style",g4h:"Specific colors or a general mood, calm or bold.",g5:"Assets to use (optional)",g5h:"Logo, photos or fonts you already have.",g6:"Your deadline",g6h:"When do you need the design ready?",fT:"Send me a message",fName:"Your name",fMail:"Email or WhatsApp",fSvc:"Service",fSvcPh:"Choose a service…",fPk:"Package",fPkPh:"Choose a package…",fDate:"Requested delivery date",fDn:"Delivery starts 24 hours after the order. If we cannot meet your date, we will contact you with the earliest available date.",fMsg:"Tell me about your project",fNameP:"Your name",fMailP:"you@email.com",fMsgP:"Channel link, niche, topic, style references…",fSend:"Send message",fSub:"New request from portfolio",fNote:"This button opens your email app with a ready message. If it does not open, write to:",name:"Mohamed Mohsen",role:"Junior graphic designer in social media and YouTube thumbnails",cta:"Contact me",photo:"Your photo goes here",aboutT:"About me",aboutP:"Hello, I’m Mohamed Mohsen, a graphic designer specializing in YouTube thumbnails and social media designs, and I also design book and study-material covers and ads.\n\nI have been working for over 3 years, with more than 300 clients and more than 1000 designs delivered, mostly with teachers and educational channels.\n\nI focus on raising click-through rate (CTR), not only on looks: a clear main element, strong contrast, and short text that stands out among dozens of videos.\n\nI design every piece from scratch without templates, using Photoshop, Illustrator and InDesign, and I reply fast and deliver on time.",s1:"Clients",s2:"Years of experience",s3:"Designs",workT:"My work",workP:"Any niche, every design is built to stand out.",toolsT:"Tools",toolsP:"The software I work with.",priceT:"Pricing",contactT:"Let’s work together",contactP:"Pick the way that suits you best.",wa:"WhatsApp",fb:"Facebook",ig:"Instagram",be:"Behance",ds:"Discord",foot:"© 2026 Mohamed Mohsen",pr:["Social media post","YouTube thumbnail","Book or study-notes cover","Ad design"],pv:"Price here"}
 };
-var CATS=[{ar:"الصور المصغرة",en:"Thumbnails",r:"16/9",h:225,n:6,f:["thumbnails/1.jpg","thumbnails/2.jpg","thumbnails/3.jpg","thumbnails/4.jpg","thumbnails/5.jpg","thumbnails/6.jpg","thumbnails/7.jpg","thumbnails/8.jpg","thumbnails/10.jpg","thumbnails/12.jpg","thumbnails/13.jpg","thumbnails/14.jpg","thumbnails/15.jpg","thumbnails/16.jpg","thumbnails/17.jpg","thumbnails/18.jpg","thumbnails/19.jpg","thumbnails/20.jpg","thumbnails/21.jpg","thumbnails/22.jpg","thumbnails/23.jpg","thumbnails/24.jpg","thumbnails/25.jpg"]},{ar:"بوستات السوشيال ميديا",en:"Social media posts",r:"4/5" /* المقاس عرض/طول مثل 4/5 وh هو ارتفاع الصورة بالبكسل */,h:440,n:8,f:[]},{ar:"أغلفة الكتب",en:"Book covers",r:"3/4",h:380,n:8,f:[]}]; /* f: أسماء الصور | h: ارتفاع الصورة | r: المقاس عرض/طول | n: عدد الصور في الصف قبل ما يبدأ صف جديد */
+var CATS=[{ar:"الصور المصغرة",en:"Thumbnails",r:"16/9",h:225,n:6,f:["thumbnails/1.jpg","thumbnails/2.jpg","thumbnails/3.jpg","thumbnails/4.jpg","thumbnails/5.jpg","thumbnails/6.jpg","thumbnails/7.jpg","thumbnails/8.jpg","thumbnails/10.jpg","thumbnails/12.jpg","thumbnails/13.jpg","thumbnails/14.jpg","thumbnails/15.jpg","thumbnails/16.jpg","thumbnails/17.jpg","thumbnails/18.jpg","thumbnails/19.jpg","thumbnails/20.jpg","thumbnails/21.jpg","thumbnails/22.jpg","thumbnails/23.jpg","thumbnails/24.jpg","thumbnails/25.jpg"]},{ar:"بوستات السوشيال ميديا",en:"Social media posts",r:"4/5" /* المقاس عرض/طول مثل 4/5 وh هو ارتفاع الصورة بالبكسل */,h:440,n:8,f:["social/1.jpg","social/2.jpg","social/3.jpg","social/4.jpg"]},{ar:"أغلفة الكتب",en:"Book covers",r:"3/4",h:380,n:8,f:["books/1.jpg","books/2.jpg","books/3.jpg","books/4.jpg","books/5.jpg","books/6.jpg","books/7.jpg","books/8.jpg","books/9.jpg","books/10.jpg","books/11.jpg","books/12.jpg","books/13.jpg","books/14.jpg","books/15.jpg"]}]; /* f: أسماء الصور | h: ارتفاع الصورة | r: المقاس عرض/طول | n: عدد الصور في الصف قبل ما يبدأ صف جديد */
 var cat=0,THUMBS=CATS[0].f;
 var PK=[
 {b:["سعر البداية","Starter price"],n:["بيسك","Basic"],s:["الباكج الأساسي","basic pack"],p:"00",u:["تصميم واحد","1 design"],f:[["تصميم واحد","1 design",1],["3 تعديلات","3 revisions",1],["تسليم خلال 24 ساعة","24h delivery",1],["ملف PNG","PNG file",1],["الملف المفتوح PSD","Source PSD file",0]]},
@@ -353,7 +395,7 @@ function render(){
   document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=d[e.dataset.i]});
   document.getElementById("lang").textContent=lang==="ar"?"EN":"عربي";
   document.getElementById("prices").innerHTML=pkHtml();
-  document.title=d.name;tabs();svcs();ph();
+  document.title=d.name;tabs();svcs();ph();var wb=document.getElementById("wab");if(wb)wb.href="https://wa.me/201122524011?text="+encodeURIComponent(d.waMsg);
   document.querySelectorAll(".stat b").forEach(function(b){if(b.dataset.done)b.textContent=b.dataset.to+(b.dataset.plus?"+":"")});
 }
 document.getElementById("lang").onclick=function(){lang=lang==="ar"?"en":"ar";render()};
@@ -370,13 +412,13 @@ document.querySelectorAll(".photo").forEach(function(p,i){if(PHOTOS[i]){p.style.
 build();render();sync();
 var lb=document.getElementById("lb");
 function closeLb(){lb.hidden=true}
-document.querySelector(".marquee").onclick=function(e){var b=e.target.closest(".zm");if(!b)return;var box=document.getElementById("lbc"),im=b.parentNode.querySelector("img");box.innerHTML="";if(im){var x=new Image();x.className="lbimg";x.alt="";x.src=im.getAttribute("src");x.onclick=function(){x.classList.toggle("real")};box.appendChild(x)}else{var t=b.parentNode.cloneNode(true);t.style.width="";t.classList.add("lbi");t.querySelector(".zm").remove();box.appendChild(t)}lb.hidden=false;lb.scrollTo(0,0)};
+document.querySelector(".marquee").onclick=function(e){var b=e.target.closest(".zm");if(!b){var t0=e.target.closest(".th"),im0=t0&&t0.querySelector("img");if(im0)openCmp(im0.getAttribute("src"));return}var box=document.getElementById("lbc"),im=b.parentNode.querySelector("img");box.innerHTML="";if(im){var x=new Image();x.className="lbimg";x.alt="";x.src=im.getAttribute("src");x.onclick=function(){x.classList.toggle("real")};box.appendChild(x)}else{var t=b.parentNode.cloneNode(true);t.style.width="";t.classList.add("lbi");t.querySelector(".zm").remove();box.appendChild(t)}lb.hidden=false;lb.scrollTo(0,0)};
 lb.onclick=function(e){if(e.target===lb||e.target.id==="lbx")closeLb()};
 document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){closeLb();sm.hidden=true}});
 function svcs(){var d=T[lang],i=lang==="ar"?0:1;document.getElementById("fs").innerHTML='<option value="">'+d.fSvcPh+'</option>'+CATS.map(function(c){return '<option>'+c[lang]+'</option>'}).join("");document.getElementById("sp").innerHTML='<option value="">'+d.fPlPh+'</option><option>Zoom</option><option>Discord</option><option>Google Meet</option>';document.getElementById("fp").innerHTML='<option value="">'+d.fPkPh+'</option>'+PK.map(function(k){return '<option>'+k.n[i]+'</option>'}).join("")}
 function ph(){var d=T[lang];document.getElementById("fd").min=new Date(Date.now()+864e5).toISOString().slice(0,10);document.querySelectorAll("[data-p]").forEach(function(e){e.placeholder=d[e.dataset.p]})}
 var WA_NUM="201122524011",CM_KEY=""; /* CM_KEY: مفتاح CallMeBot لإرسال واتساب تلقائي */
-var TG_TOKEN="9049205114:AAG1DcVC7y6k6AG_J0MoSg_YlVV_9lXJUBg",TG_CHAT="509505692";
+var TG_TOKEN="9049205114:AAG1DcVC7y6k6AG_J0MoSg_YlVV_9lXJUBg",TG_CHAT="5207922416";
 function deliver(f,text,ok,err){
   var subj=f._subject;delete f._subject;
   fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.assign({access_key:"f6d3d7b5-ee34-4406-b5ec-982bcd94e3b8",subject:subj,from_name:"Portfolio"},f))}).then(function(r){return r.json()}).then(function(j){if(!j.success)throw 0;ok()}).catch(err);
@@ -385,7 +427,7 @@ function deliver(f,text,ok,err){
 }
 function gv(x){return document.getElementById(x).value}
 document.getElementById("fm").onsubmit=function(e){e.preventDefault();var d=T[lang],f={name:gv("fn"),contact:gv("fe"),service:gv("fs"),package:gv("fp"),delivery:gv("fd"),message:gv("ft")};
-var text=d.fSub+"\n\n"+d.fName+": "+f.name+"\n"+d.fMail+": "+f.contact+"\n"+d.fSvc+": "+f.service+"\n"+d.fPk+": "+f.package+"\n"+d.fDate+": "+f.delivery+"\n\n"+f.message;
+var text=d.fSub+"\n\n"+d.fName+": "+f.name+"\n"+d.fMail+": "+f.contact+"\n"+d.fSvc+": "+f.service+"\n"+(f.package?d.fPk+": "+f.package+"\n":"")+d.fDate+": "+f.delivery+"\n\n"+f.message;
 var form=e.target,btn=form.querySelector("button[type=submit]");btn.disabled=true;f._subject=d.fSub+" - "+f.name;
 deliver(f,text,function(){btn.disabled=false;btn.textContent=d.fOk;form.reset()},function(){btn.disabled=false;btn.textContent=d.fErr})};
 document.getElementById("sf").onsubmit=function(e){e.preventDefault();var d=T[lang],f={name:gv("sn"),contact:gv("sc"),platform:gv("sp"),notes:gv("snt"),_subject:d.sesT+" - "+gv("sn")};
@@ -407,6 +449,37 @@ document.getElementById("tools").addEventListener("error",function(e){var im=e.t
 document.documentElement.classList.add("js");
 var rvIO=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");rvIO.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll("main section:not(.hero)").forEach(function(x){rvIO.observe(x)});
+var BG="",BG_OP=0.35; /* BG: اسم صورة الخلفية مثل "bg.jpg" | BG_OP: قوتها من 0 لـ 1 */
+if(BG){var bi=document.getElementById("bgimg");bi.style.backgroundImage="url("+BG+")";bi.style.opacity=BG_OP;bi.style.display="block"}
+var BEFORE={}; /* اختياري: "thumbnails/1.jpg":"before/thumbnails/1.jpg" وإلا بيدوّر على before/ + نفس المسار */
+function beforeOf(src){return BEFORE[src]||"before/"+src}
+function setP(v){document.getElementById("cmp").style.setProperty("--p",Math.max(0,Math.min(100,v))+"%")}
+function beforeCandidates(src){
+  if(BEFORE[src])return [BEFORE[src]];
+  var i=src.lastIndexOf("/"),dir=i>-1?src.slice(0,i+1):"",file=src.slice(i+1),j=file.lastIndexOf("."),base=j>-1?file.slice(0,j):file,ext=j>-1?file.slice(j+1):"jpg",exts=[ext,"jpg","jpeg","png","webp","JPG","PNG"],out=[];
+  ["before/","Before/"].forEach(function(r){[r+dir,r].forEach(function(d){exts.forEach(function(x){var u=d+base+"."+x;if(out.indexOf(u)<0)out.push(u)})})});
+  return out}
+function loadBefore(list,k,ok,fail){if(k>=list.length)return fail();var t=new Image();t.onload=function(){ok(t.src)};t.onerror=function(){loadBefore(list,k+1,ok,fail)};t.src=list[k]}
+function openCmp(src){var w=document.getElementById("cmpw"),c=document.getElementById("cmp"),a=document.getElementById("cmpa"),b=document.getElementById("cmpb");
+  c.classList.add("single");b.removeAttribute("src");setP(50);w.hidden=false;
+  a.onload=function(){c.style.setProperty("--ar",a.naturalWidth/a.naturalHeight)};
+  a.src=src;
+  var n=document.getElementById("cmpn"),list=beforeCandidates(src);n.hidden=true;
+  loadBefore(list,0,function(u){if(a.getAttribute("src")===src){b.src=u;c.classList.remove("single")}},function(){if(/debug/.test(location.search)){n.textContent="مفيش صورة قبل. المسار المتوقع: "+list[0];n.hidden=false}});
+  setTimeout(function(){w.scrollIntoView({behavior:"smooth",block:"center"})},60)}
+(function(){var c=document.getElementById("cmp"),drag=false;
+  function mv(e){var r=c.getBoundingClientRect();setP((e.clientX-r.left)/r.width*100)}
+  c.addEventListener("pointerdown",function(e){if(c.classList.contains("single"))return;drag=true;c.setPointerCapture(e.pointerId);mv(e)});
+  c.addEventListener("pointermove",function(e){if(drag)mv(e)});
+  c.addEventListener("pointerup",function(){drag=false});
+  c.addEventListener("pointercancel",function(){drag=false});
+  c.addEventListener("keydown",function(ev){var cur=parseFloat(c.style.getPropertyValue("--p"))||50;if(ev.key==="ArrowLeft")setP(cur-5);if(ev.key==="ArrowRight")setP(cur+5)});
+  document.getElementById("cmpx").onclick=function(){document.getElementById("cmpw").hidden=true};
+})();
+var tt=document.getElementById("totop");
+addEventListener("scroll",function(){tt.classList.toggle("show",window.scrollY>400)},{passive:true});
+tt.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+if(!SHOW_PRICING){var pe=document.getElementById("pricing");if(pe)pe.closest("section").hidden=true;var pl=document.querySelector('.nl a[href="#pricing"]');if(pl)pl.hidden=true;var fw=document.getElementById("fpw");if(fw)fw.hidden=true}
 </script>
 </body>
 </html>
