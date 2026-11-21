@@ -245,16 +245,173 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
 .wab:hover{transform:scale(1.1)}
 @keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55),0 10px 28px -6px rgba(37,211,102,.7)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0),0 10px 28px -6px rgba(37,211,102,.7)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),0 10px 28px -6px rgba(37,211,102,.7)}}
 @media (prefers-reduced-motion:reduce){.wab{animation:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.h2{text-align:center}
+.hi{font-size:clamp(30px,5vw,48px);font-weight:900;line-height:1.2;margin-bottom:6px}
+.h2row{display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"n1 pic n2";align-items:center;gap:8px 28px}
+.n1{grid-area:n1;text-align:end}
+.n2{grid-area:n2;text-align:start}
+.h2pic{grid-area:pic;position:relative;isolation:isolate;display:grid;place-items:center}
+.h2n{display:block;font-size:clamp(36px,8.4vw,104px);font-weight:900;line-height:1.1}
+.h2l{display:block;font-size:clamp(15px,2vw,22px);font-weight:700;color:var(--primary);margin-top:4px}
+.h2pic::before{content:"";position:absolute;width:170%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(126,0,199,.5),transparent 65%);z-index:-1}
+.h2pic .photo{width:min(300px,56vw);aspect-ratio:1;border-radius:50%;border:3px solid rgba(182,109,255,.65);box-shadow:0 0 60px rgba(126,0,199,.6);max-width:none;min-height:0;padding:0}
+.bd{position:absolute;width:62px;height:62px;border-radius:18px;display:grid;place-items:center;color:#fff;background:rgba(126,0,199,.32);border:1px solid rgba(182,109,255,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -6px rgba(126,0,199,.7);animation:flt 5s ease-in-out infinite}
+.b1{top:0;inset-inline-end:-4%}
+.b2{bottom:4%;inset-inline-start:-6%}
+.b3{top:42%;inset-inline-end:-16%;width:48px;height:48px;border-radius:14px}
+@keyframes flt{50%{transform:translateY(-10px)}}
+.h2d{max-width:560px;margin:22px auto;color:var(--muted);font-size:clamp(16px,2.2vw,19px);line-height:1.8}
+.h2btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.h2btns .btn{margin:0;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:var(--glass)!important;color:var(--text)!important}
+[dir="rtl"] .arr{transform:scaleX(-1)}
+@media (max-width:700px){.h2row{grid-template-columns:1fr 1fr;grid-template-areas:"pic pic" "n1 n2";gap:22px 12px}.h2pic .photo{width:min(240px,64vw)}.h2n{font-size:40px}.b1{inset-inline-end:2%}.b2{inset-inline-start:2%}.b3{display:none}.h2btns .btn{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.bd{animation:none}}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.wc{padding:24px;border-radius:22px;background:var(--glass);border:1px solid var(--gl);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 12px 32px -8px rgba(126,0,199,.5);transition:transform .25s,border-color .25s}
+.wc:hover{transform:translateY(-6px);border-color:var(--accent)}
+.wc i{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;margin-bottom:14px;color:#fff;background:linear-gradient(135deg,rgba(126,0,199,.6),rgba(126,0,199,.15));border:1px solid rgba(182,109,255,.5)}
+.wc h3{margin:0 0 6px;font-size:19px;font-weight:800;line-height:1.5}
+.wc p{margin:0;color:var(--muted);font-size:15px;line-height:1.8}
+/* ===== الشريط العلوي: كبسولة بصورتك وزر تواصل وخط تحت القسم الحالي ===== */
+.navwrap,.nbg{border-radius:999px}
+.nav{border-radius:999px;flex-wrap:nowrap;gap:10px;padding:7px 14px}
+.avatar{flex:none;width:46px;height:46px;border-radius:50%;border:2px solid rgba(255,255,255,.22);background:url(me1.jpg) center/cover no-repeat,linear-gradient(160deg,#7E00C7,#2A0A45);box-shadow:0 0 0 3px rgba(126,0,199,.35)}
+.nl{flex:1;justify-content:center;flex-wrap:nowrap;gap:0}
+.nl a{padding:6px 9px;border-radius:10px;white-space:nowrap;color:#F4EFFF}
+.nl a+a::before{display:none}
+.nl a:hover{background:rgba(255,255,255,.08);color:#fff}
+.nl a.active{color:#fff}
+.nl a.active::after{content:"";position:absolute;inset-inline:9px;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,#D13BE0,#7E00C7)}
+.nav .tools{flex:none;gap:10px;align-items:center}
+.ncta{display:inline-flex;align-items:center;padding:8px 22px;border-radius:999px;background:linear-gradient(135deg,#D13BE0,#B01FD0);color:#fff;font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 18px rgba(200,50,220,.45);transition:transform .2s,filter .2s}
+.ncta:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.nav .tools #lang{background:transparent;color:#F4EFFF;border:1px solid rgba(255,255,255,.32);-webkit-backdrop-filter:none;backdrop-filter:none;padding:7px 16px;font-weight:700}
+.nav .tools #lang:hover{background:rgba(255,255,255,.1)}
+.nav .tools .sw{width:56px;height:30px}
+.nav .tools .sw i{top:4px;left:4px;width:22px;height:22px}
+.nav .tools .sw[aria-pressed="true"] i{left:30px}
+@media (max-width:1020px){
+header{top:4px;padding:8px 10px}
+.nav{padding:6px 10px;gap:8px}
+.mb{display:flex;margin-inline-end:auto}
+.nl{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;gap:2px;padding:8px;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:rgba(10,6,20,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 48px rgba(0,0,0,.55);z-index:6}
+.nav.open .nl{display:flex}
+.nl a{padding:10px 12px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.nl a:last-child{border-bottom:0}
+.nl a.active::after{inset-inline:12px;bottom:4px}
+}
+@media (max-width:480px){
+.avatar{width:40px;height:40px}
+.nav .tools{gap:6px}
+.ncta{padding:7px 14px;font-size:14px}
+.nav .tools #lang{padding:6px 11px;font-size:13px}
+.nav .tools .sw{width:50px;height:28px}
+.nav .tools .sw i{width:20px;height:20px}
+.nav .tools .sw[aria-pressed="true"] i{left:26px}
+}
+/* ===== نقطة الماوس + قسم آراء العملاء ===== */
+.cdot{position:fixed;left:0;top:0;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(126,0,199,.55),0 0 14px 5px rgba(182,109,255,.65);pointer-events:none;z-index:9999;opacity:0;transition:opacity .25s}
+.cdot.on{opacity:1}
+.cdot.big{opacity:.55}
+.rv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,260px));justify-content:center;gap:22px;margin-top:8px}
+.rv .ph{display:block;padding:8px;border-radius:28px;background:#0B0714;border:2px solid rgba(255,255,255,.18);box-shadow:0 18px 40px -10px rgba(126,0,199,.55);cursor:zoom-in;overflow:hidden}
+.rv .ph img{display:block;width:100%;height:auto;border-radius:20px}
+.rv .ph:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.rv .ph.empty{min-height:380px;display:grid;place-items:center;color:var(--muted);background:var(--glass);border-style:dashed;cursor:default}
+.rv .ph.empty svg{width:44px;height:44px;opacity:.7}
+@media (max-width:700px){.rv{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:8px -16px 0;padding:4px 16px 16px}.rv .ph{flex:0 0 72%;scroll-snap-align:center}}
+/* ===== النسخة الإنجليزي: الاسم الكبير يتناسب مع عرض الشاشة ===== */
+html[lang="en"] .h2row{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+html[lang="en"] .h2n{font-size:clamp(28px,calc((100vw - 396px)/10),68px);white-space:nowrap}
+html[lang="en"] .b3{inset-inline-end:-9%}
+@media (max-width:700px){
+html[lang="en"] .h2row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+html[lang="en"] .h2n{font-size:clamp(24px,calc((100vw - 56px)/10),40px)}
+}
+/* ===== الفوتر: تواصل معي في آخر الصفحة ===== */
+.ft{margin-top:56px;padding:0;text-align:start;color:#F4EFFF;font-size:14px;background:linear-gradient(180deg,#1B1036,#120A28);border-radius:32px 32px 0 0}
+.ft-in{max-width:1080px;margin:0 auto;padding:52px 20px 28px}
+.ft-top{display:grid;grid-template-columns:auto auto auto;justify-content:space-between;align-items:start;gap:28px 40px}
+.ft-me{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.ft-av{width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.22);background:url(me1.jpg) center/cover no-repeat,linear-gradient(160deg,#7E00C7,#2A0A45);box-shadow:0 0 0 3px rgba(126,0,199,.35)}
+.ft-name{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.15;margin-top:6px}
+.ft-role{color:#B9AED0;font-size:15px}
+.ft-mail{color:#C98BFF;text-decoration:none;font-size:15px}
+.ft-mail:hover{text-decoration:underline}
+.ft-follow{display:flex;flex-direction:column;gap:14px;color:#B9AED0}
+.ft-soc{display:flex;flex-wrap:wrap;gap:12px;max-width:260px}
+.ft-soc a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#DCD3EE;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.ft-soc a:hover{color:#fff;border-color:#C98BFF;background:rgba(182,109,255,.22)}
+.ft-soc svg{width:20px;height:20px}
+.ft-soc .be{font-size:13px;font-weight:800;letter-spacing:-.5px}
+.ft-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:999px;background:linear-gradient(135deg,#D13BE0,#B01FD0);color:#fff;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 8px 22px rgba(200,50,220,.45);transition:transform .2s,filter .2s}
+.ft-cta:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.ft-bot{margin-top:40px;padding:20px 72px 0;border-top:1px solid rgba(255,255,255,.14);color:#B9AED0}
+@media (max-width:700px){.ft-top{grid-template-columns:1fr;justify-content:stretch}.ft-in{padding-top:40px}.ft-cta{justify-self:start}}
+/* ===== نبذة عني: مختصرة ومرتبة ===== */
+.about{grid-template-columns:minmax(0,280px) 1fr;gap:40px;align-items:start}
+.about .photo{align-self:start;aspect-ratio:3/4;min-height:0;position:sticky;top:110px}
+.ab h2{margin-bottom:14px}
+.ab-intro{margin:0 0 8px;color:var(--muted);font-size:clamp(16px,2.2vw,19px);line-height:1.9;max-width:62ch}
+.ab h3{font-size:18px;font-weight:800;margin:28px 0 14px}
+.ab ul{list-style:none;margin:0;padding:0}
+.ab-dots{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;max-width:560px}
+.ab-dots li{display:flex;align-items:center;gap:12px;font-weight:600}
+.ab-dots li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#C72FD8;box-shadow:0 0 10px rgba(199,47,216,.8)}
+.ab-checks{display:grid;gap:12px;max-width:620px}
+.ab-checks li{display:flex;align-items:center;gap:12px;color:var(--muted);line-height:1.7}
+.ab-checks li::before{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:rgba(126,0,199,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A24DFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/14px no-repeat;border:1px solid rgba(126,0,199,.25)}
+@media (max-width:700px){
+.about{grid-template-columns:1fr;gap:22px}
+.about .photo{position:static;width:min(190px,56%);aspect-ratio:1;justify-self:center;max-width:none}
+}
+@media (max-width:420px){.ab-dots{grid-template-columns:1fr}}
+#intro{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2A0A45,#0D0D12 72%);color:#fff;animation:introUp .85s cubic-bezier(.77,0,.18,1) 2.2s forwards}
+.in-in{text-align:center;padding:20px}
+.in-m{width:120px;height:120px;overflow:visible}
+.in-m path{fill:none;stroke:url(#ing);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:280;stroke-dashoffset:280;animation:inDraw 1.1s ease .2s forwards}
+.in-m rect{fill:#fff;stroke:#B66DFF;stroke-width:2;transform-box:fill-box;transform-origin:center;transform:scale(0);animation:inPop .35s cubic-bezier(.3,1.6,.5,1) forwards}
+.in-name{font-size:clamp(34px,7vw,64px);font-weight:900;margin-top:10px;opacity:0;animation:inRise .7s ease 1s forwards}
+.in-role{color:#C9B8E6;font-size:clamp(15px,2.4vw,20px);font-weight:700;opacity:0;animation:inRise .7s ease 1.3s forwards}
+@keyframes inDraw{to{stroke-dashoffset:0}}
+@keyframes inPop{to{transform:scale(1)}}
+@keyframes inRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes introUp{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.hero .hi{animation:rise .8s ease 2.3s both}
+.hero .h2row{animation:rise .8s ease 2.45s both}
+.hero .h2d{animation:rise .8s ease 2.6s both}
+.hero .h2btns{animation:rise .8s ease 2.75s both}
+@media (prefers-reduced-motion:reduce){#intro{display:none}.hero .hi,.hero .h2row,.hero .h2d,.hero .h2btns{animation:none}}
+.n1{text-align:left}
+.n2{text-align:right}
+html.en [data-i]:not(summary){direction:ltr}
+html.en .h2row{grid-template-areas:"n2 pic n1"}
+html.en .n1{text-align:right}
+html.en .n2{text-align:left}
+@media (max-width:700px){html.en .h2row{grid-template-areas:"pic pic" "n2 n1"}}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><div class="in-in">
+  <svg class="in-m" viewBox="0 0 120 120"><defs><linearGradient id="ing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B66DFF"/><stop offset="1" stop-color="#FFD600"/></linearGradient></defs>
+    <path d="M20 96V28l40 44 40-44v68"/>
+    <rect x="16" y="92" width="8" height="8" style="animation-delay:.25s"/><rect x="16" y="24" width="8" height="8" style="animation-delay:.45s"/><rect x="56" y="68" width="8" height="8" style="animation-delay:.7s"/><rect x="96" y="24" width="8" height="8" style="animation-delay:.95s"/><rect x="96" y="92" width="8" height="8" style="animation-delay:1.15s"/>
+  </svg>
+  <div class="in-name"><span data-i="n1"></span> <span data-i="n2"></span></div>
+  <div class="in-role"><span data-i="l1"></span> <span data-i="l2"></span></div>
+</div></div>
 <div id="bgimg"></div>
 <header><div class="navwrap"><span class="nbg"></span><nav class="nav">
+  <a class="avatar" href="#home" aria-label="الصفحة الرئيسية"></a>
   <button id="mb" class="mb" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <div class="nl">
-    <a href="#home" data-i="nHome"></a><a href="#about" data-i="nAbout"></a><a href="#stats" data-i="nExp"></a><a href="#work" data-i="nWork"></a><a href="#toolsec" data-i="nTools"></a><a href="#pricing" data-i="nPrice"></a><a href="cv.pdf" download data-i="nCv"></a><a href="#contact" data-i="nContact"></a>
+    <a href="#home" data-i="nHome"></a><a href="#about" data-i="nAbout"></a><a href="#stats" data-i="nExp"></a><a href="#work" data-i="nWork"></a><a href="#toolsec" data-i="nTools"></a><a href="#pricing" data-i="nPrice"></a><a href="cv.pdf" download data-i="nCv"></a>
   </div>
   <div class="tools">
+    <a class="ncta" href="#contact" data-i="nContact"></a>
     <button id="lang" type="button">EN</button>
     <button id="theme" class="sw" type="button" aria-label="Dark / Light" aria-pressed="false"><i></i></button>
   </div>
@@ -262,18 +419,39 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
 
 <main class="wrap">
   <section class="hero" id="home">
-    <div class="hero-in"><div>
-    <h1 data-i="name"></h1>
-    <p data-i="role"></p>
-    <a class="btn" href="#contact" data-i="cta"></a><a class="btn" href="cv.pdf" download data-i="cv"></a>
-    </div><div class="photo" data-i="photo"></div></div>
+    <h1 class="sr" data-i="name"></h1>
+    <div class="h2">
+      <div class="hi" data-i="hi"></div>
+      <div class="h2row">
+        <div class="n1"><span class="h2n" data-i="n1"></span><span class="h2l" data-i="l1"></span></div>
+        <div class="h2pic">
+          <div class="photo" data-i="photo"></div>
+          <span class="bd b1"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span><span class="bd b2" style="animation-delay:-2s"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><span class="bd b3" style="animation-delay:-3.5s"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+        </div>
+        <div class="n2"><span class="h2n" data-i="n2"></span><span class="h2l" data-i="l2"></span></div>
+      </div>
+      <div class="h2d" data-i="role"></div>
+      <div class="h2btns">
+        <a class="btn" href="#work"><span data-i="wk"></span><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#contact" data-i="cta"></a>
+        <a class="btn ghost" href="cv.pdf" download data-i="cv"></a>
+      </div>
+    </div>
   </section>
 
   <section class="about" id="about">
     <div class="photo" data-i="photo"></div>
-    <div>
+    <div class="ab">
       <h2 data-i="aboutT"></h2>
-      <p class="sub" data-i="aboutP"></p>
+      <p class="ab-intro" data-i="aboutP"></p>
+      <h3 data-i="abDT"></h3>
+      <ul class="ab-dots">
+        <li data-i="ab1"></li><li data-i="ab2"></li><li data-i="ab3"></li><li data-i="ab4"></li><li data-i="ab5"></li>
+      </ul>
+      <h3 data-i="abWT"></h3>
+      <ul class="ab-checks">
+        <li data-i="abw1"></li><li data-i="abw2"></li><li data-i="abw3"></li><li data-i="abw4"></li><li data-i="abw5"></li>
+      </ul>
     </div>
   </section>
 
@@ -282,6 +460,19 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
       <div class="stat"><b data-to="300" data-plus="1">0</b><span data-i="s1"></span></div>
       <div class="stat"><b data-to="3">0</b><span data-i="s2"></span></div>
       <div class="stat"><b data-to="1000" data-plus="1">0</b><span data-i="s3"></span></div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2 data-i="whyT"></h2>
+    <p class="sub" data-i="whyP"></p>
+    <div class="why">
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></i><h3 data-i="w1t"></h3><p data-i="w1d"></p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></i><h3 data-i="w2t"></h3><p data-i="w2d"></p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></i><h3 data-i="w3t"></h3><p data-i="w3d"></p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></i><h3 data-i="w4t"></h3><p data-i="w4d"></p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></i><h3 data-i="w5t"></h3><p data-i="w5d"></p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></i><h3 data-i="w6t"></h3><p data-i="w6d"></p></div>
     </div>
   </section>
 
@@ -308,6 +499,12 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
     <div class="cards" id="tools"></div>
   </section>
 
+  <section id="reviews">
+    <h2 data-i="revT"></h2>
+    <p class="sub" data-i="revP"></p>
+    <div class="rv" id="rv"></div>
+  </section>
+
   <section>
     <details id="pricing">
       <summary data-i="priceT"></summary>
@@ -318,9 +515,6 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
   <section id="contact">
     <h2 data-i="contactT"></h2>
     <p class="sub" data-i="contactP"></p>
-    <div class="links">
-      <a href="https://wa.link/g80kyq" target="_blank" rel="noopener" data-i="wa"></a><a href="https://www.facebook.com/mohamed.7mohsen.1023" target="_blank" rel="noopener" data-i="fb"></a><a href="https://www.instagram.com/mohamedmohsen5585/" target="_blank" rel="noopener" data-i="ig"></a><a href="https://www.behance.net/mohamedmohsen178" target="_blank" rel="noopener" data-i="be"></a><a href="https://discord.com/users/996135367281479762" target="_blank" rel="noopener" data-i="ds"></a>
-    </div>
     <div class="cgrid">
       <div class="gs"><h3 data-i="gsT"></h3><p class="gp" data-i="gsP"></p>
         <details><summary data-i="g1"></summary><p data-i="g1h"></p></details>
@@ -343,7 +537,27 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
     </div>
   </section>
 </main>
-<footer data-i="foot"></footer>
+<footer class="ft"><div class="ft-in">
+  <div class="ft-top">
+    <div class="ft-me">
+      <span class="ft-av"></span>
+      <strong class="ft-name"><span data-i="n1"></span> <span data-i="n2"></span></strong>
+      <span class="ft-role"><span data-i="l1"></span> <span data-i="l2"></span></span>
+      <a class="ft-mail" id="ftmail" href="#" hidden></a>
+    </div>
+    <div class="ft-follow"><span data-i="follow"></span>
+      <div class="ft-soc">
+        <a href="https://wa.me/201122524011" data-wa target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        <a href="https://www.facebook.com/mohamed.7mohsen.1023" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/mohamedmohsen5585/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="https://www.behance.net/mohamedmohsen178" target="_blank" rel="noopener" aria-label="Behance" title="Behance"><b class="be">Bē</b></a>
+        <a href="https://discord.com/users/996135367281479762" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6c2-1.5 4-2 7-2s5 .5 7 2c1.5 3 2.2 6.5 2 11-1.8 1.4-3.6 2.2-5.5 2.6l-1-1.8c-1.2.3-2.4.3-3.5 0l-1 1.8C6.6 19.2 4.8 18.4 3 17c-.2-4.5.5-8 2-11z"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/></svg></a>
+      </div>
+    </div>
+    <a class="ft-cta" href="https://wa.me/201122524011" data-wa target="_blank" rel="noopener"><span data-i="nContact"></span><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="ft-bot"><span data-i="foot"></span></div>
+</div></footer>
 <button id="totop" class="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <a id="wab" class="wab" href="https://wa.me/201122524011" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/><path d="M9 9.5c.2 1.6 1.3 3.2 3 4.3l1.2-1.2 2 .9-.7 1.2c-2.8.1-6-2.7-5.9-5.4l1.2-.8.9 2z" fill="currentColor" stroke="none"/></svg></a>
 <div id="lb" hidden><button id="lbx" type="button" aria-label="close">✕</button><div id="lbc"></div></div>
@@ -358,10 +572,13 @@ body::before{background:radial-gradient(260px 260px at 6% 4%,rgba(126,0,199,.38)
 <div id="sdone" hidden><h3>✓</h3><p data-i="sOk"></p></div></div></div>
 
 <script>
-var SHOW_PRICING=false; /* true = قسم الأسعار ظاهر | false = مخفي */
+var SHOW_PRICING=true; /* true = قسم الأسعار ظاهر | false = مخفي */
+var SHOW_REVIEWS=true; /* true = قسم آراء العملاء ظاهر | false = مخفي */
+var CONTACT_EMAIL=""; /* اكتب إيميلك هنا لو عايزه يظهر في الفوتر، مثال: "name@gmail.com" */
+var REVIEWS=[]; /* حط هنا أسماء صور محادثات العملاء بالترتيب، مثال: ["rev1.jpg","rev2.jpg","rev3.jpg"] */
 var T={
-ar:{nHome:"الصفحة الرئيسية",nWork:"أعمالي",nPrice:"الأسعار",nAbout:"نبذة عني",nExp:"خبراتي",nTools:"الأدوات",nCv:"السيرة الذاتية",nContact:"تواصل",cv:"تحميل السيرة الذاتية",start:"ابدأ الآن",ses:"جلسة مجانية",sesT:"اطلب جلسة مجانية",sesP:"نتكلم على Zoom أو Discord أو Google Meet، وأشرحلك تفاصيل شغلك وأسمع فكرتك قبل ما نبدأ.",sesB:"اطلب الجلسة",fPl:"المنصة المفضلة",fPlPh:"اختار المنصة...",fOk:"تم إرسال طلبك ✓",lblB:"قبل",lblA:"بعد",waMsg:"مرحباً، عندي استفسار عن خدمات التصميم.",sNote:"ملاحظات (اختياري)",sSend:"إرسال الطلب",sOk:"تم الإرسال، وهنتواصل مع حضرتك في أقرب وقت ممكن لتحديد معاد الجلسة.",fErr:"حصل خطأ في الإرسال، جرّب مرة تانية.",gsT:"ابدأ معايا",gsP:"كل اللي محتاجه عشان أبدأ:",g1:"فكرة التصميم أو العنوان",g1h:"اكتبلي الفكرة أو عنوان الفيديو أو موضوع التصميم.",g2:"النص المطلوب كتابته (اختياري)",g2h:"أي كلام عايزه يظهر على التصميم.",g3:"تصميم مرجعي (اختياري)",g3h:"ابعتلي مثال عاجبك عشان أمشي على نفس الروح.",g4:"الألوان أو الستايل المفضل",g4h:"ألوان معينة أو إحساس عام زي هادي أو جريء.",g5:"ملفات تستخدمها (اختياري)",g5h:"لوجو أو صور أو خطوط عندك.",g6:"موعد التسليم",g6h:"إمتى محتاج التصميم يكون جاهز؟",fT:"ابعتلي رسالة",fName:"اسمك",fMail:"إيميلك أو واتساب",fSvc:"الخدمة",fSvcPh:"اختار الخدمة...",fPk:"الباكج",fPkPh:"اختار الباكج...",fDate:"معاد التسليم المطلوب",fDn:"التسليم بعد 24 ساعة من الطلب. ولو مقدرناش نلتزم بالمعاد هنتواصل مع حضرتك ونعرّف حضرتك بالمعاد المتاح للتسليم.",fMsg:"احكيلي عن مشروعك",fNameP:"اسمك",fMailP:"you@email.com",fMsgP:"لينك القناة، المجال، موضوع الفيديو، أمثلة عاجباك...",fSend:"إرسال الرسالة",fSub:"طلب جديد من البورتفوليو",fNote:"الزرار بيفتح تطبيق الإيميل عندك برسالة جاهزة. لو مفتحش ابعت على:",name:"محمد محسن",role:"جونيور جرافيك ديزاينر في مجال السوشيال ميديا والصور المصغرة لليوتيوب",cta:"تواصل معايا",photo:"مكان صورتك هنا",aboutT:"نبذة عني",aboutP:"مرحباً، أنا محمد محسن، مصمم جرافيك متخصص في الصور المصغرة لليوتيوب وتصاميم السوشيال ميديا، وأصمم أيضاً أغلفة الكتب والمذكرات والتصاميم الإعلانية.\n\nأعمل منذ أكثر من 3 سنوات، وتعاملت مع أكثر من 300 عميل ونفّذت أكثر من 1000 تصميم، وخبرتي الأكبر مع المدرسين والقنوات التعليمية.\n\nأركّز على رفع فرص النقر (CTR) وليس جمال الشكل فقط: عنصر رئيسي واضح، وتباين قوي، ونص قصير يبرز بين عشرات الفيديوهات.\n\nأصمم كل عمل من الصفر دون قوالب جاهزة باستخدام Photoshop وIllustrator وInDesign، وأحرص على الرد السريع والتسليم في موعده.",s1:"عميل",s2:"سنين خبرة",s3:"تصميم",workT:"أعمالي",workP:"أي مجال، كل تصميم مبني عشان يلفت النظر.",toolsT:"الأدوات",toolsP:"البرامج اللي بشتغل بيها.",priceT:"الأسعار",contactT:"خلينا نشتغل سوا",contactP:"اختار الطريقة الأنسب للتواصل.",wa:"واتساب",fb:"فيسبوك",ig:"إنستجرام",be:"بيهانس",ds:"ديسكورد",foot:"© 2026 محمد محسن",pr:["بوست سوشيال ميديا","صورة مصغرة ليوتيوب","غلاف كتاب أو ملزمة","تصميم إعلاني"],pv:"السعر هنا"},
-en:{nHome:"Home",nWork:"My work",nPrice:"Pricing",nAbout:"About me",nExp:"Experience",nTools:"Tools",nCv:"CV",nContact:"Contact",cv:"Download CV",start:"Get started",ses:"Free session",sesT:"Request a free session",sesP:"We talk on Zoom, Discord or Google Meet, and I go through the details of your project and hear your idea before we start.",sesB:"Request a session",fPl:"Preferred platform",fPlPh:"Choose a platform…",fOk:"Request sent ✓",lblB:"Before",lblA:"After",waMsg:"Hello, I have a question about your design services.",sNote:"Notes (optional)",sSend:"Send request",sOk:"Sent. We will contact you as soon as possible to set the session time.",fErr:"Something went wrong, please try again.",gsT:"Get started",gsP:"All I need to get started:",g1:"Your design idea or title",g1h:"Tell me the idea, video title or topic of the design.",g2:"Text to include (optional)",g2h:"Any wording you want on the design.",g3:"Reference design (optional)",g3h:"Send an example you like so I can match the feel.",g4:"Preferred colors or style",g4h:"Specific colors or a general mood, calm or bold.",g5:"Assets to use (optional)",g5h:"Logo, photos or fonts you already have.",g6:"Your deadline",g6h:"When do you need the design ready?",fT:"Send me a message",fName:"Your name",fMail:"Email or WhatsApp",fSvc:"Service",fSvcPh:"Choose a service…",fPk:"Package",fPkPh:"Choose a package…",fDate:"Requested delivery date",fDn:"Delivery starts 24 hours after the order. If we cannot meet your date, we will contact you with the earliest available date.",fMsg:"Tell me about your project",fNameP:"Your name",fMailP:"you@email.com",fMsgP:"Channel link, niche, topic, style references…",fSend:"Send message",fSub:"New request from portfolio",fNote:"This button opens your email app with a ready message. If it does not open, write to:",name:"Mohamed Mohsen",role:"Junior graphic designer in social media and YouTube thumbnails",cta:"Contact me",photo:"Your photo goes here",aboutT:"About me",aboutP:"Hello, I’m Mohamed Mohsen, a graphic designer specializing in YouTube thumbnails and social media designs, and I also design book and study-material covers and ads.\n\nI have been working for over 3 years, with more than 300 clients and more than 1000 designs delivered, mostly with teachers and educational channels.\n\nI focus on raising click-through rate (CTR), not only on looks: a clear main element, strong contrast, and short text that stands out among dozens of videos.\n\nI design every piece from scratch without templates, using Photoshop, Illustrator and InDesign, and I reply fast and deliver on time.",s1:"Clients",s2:"Years of experience",s3:"Designs",workT:"My work",workP:"Any niche, every design is built to stand out.",toolsT:"Tools",toolsP:"The software I work with.",priceT:"Pricing",contactT:"Let’s work together",contactP:"Pick the way that suits you best.",wa:"WhatsApp",fb:"Facebook",ig:"Instagram",be:"Behance",ds:"Discord",foot:"© 2026 Mohamed Mohsen",pr:["Social media post","YouTube thumbnail","Book or study-notes cover","Ad design"],pv:"Price here"}
+ar:{abDT:"ماذا أصمم",ab1:"الصور المصغرة لليوتيوب",ab2:"تصاميم السوشيال ميديا",ab3:"أغلفة الكتب",ab4:"أغلفة المذكرات",ab5:"التصاميم الإعلانية",abWT:"طريقة عملي",abw1:"أفهم فكرتك ومشروعك أولًا، ويمكنك طلب جلسة مجانية لمناقشة التفاصيل.",abw2:"أصمم كل عمل من الصفر دون قوالب جاهزة.",abw3:"أركّز على رفع النقر: عنصر رئيسي واضح، وتباين قوي، ونص قصير.",abw4:"رد سريع وتسليم في الموعد المتفق عليه.",abw5:"الأدوات: Photoshop · Illustrator · InDesign",follow:"تابعني",revT:"آراء العملاء",revP:"محادثات حقيقية مع عملاء اشتغلت معاهم.",nHome:"الصفحة الرئيسية",nWork:"أعمالي",nPrice:"الأسعار",nAbout:"نبذة عني",nExp:"خبراتي",nTools:"الأدوات",nCv:"السيرة الذاتية",nContact:"تواصل",cv:"تحميل السيرة الذاتية",start:"ابدأ الآن",hi:"أهلاً!",n1:"محمد",n2:"محسن",l1:"جونيور",l2:"جرافيك ديزاينر",wk:"معرض أعمالي",whyT:"ليه تختارني؟",whyP:"أسباب بسيطة تخلّيك تطمّن لشغلي.",w1t:"رد سريع وتسليم في موعده",w1d:"بحرص على الرد السريع والتسليم في الميعاد، من غير ما الجودة تتأثر.",w2t:"تصميم من الصفر",w2d:"كل تصميم مبني على فكرتك، بدون قوالب جاهزة، فبيطلع مميز ومش شبه غيره.",w3t:"تركيز على رفع النقر (CTR)",w3d:"عنصر رئيسي واضح، وتباين قوي، ونص قصير يبرز وسط عشرات الفيديوهات.",w4t:"خبرة مع المدرسين والقنوات التعليمية",w4d:"أكتر من 3 سنوات خبرة، وأكتر من 300 عميل، وأكتر من 1000 تصميم.",w5t:"بفهم فكرتك قبل ما أبدأ",w5d:"بفهم الفيديو أو المشروع وهويته الأول، وتقدر تطلب جلسة مجانية نشرح فيها التفاصيل.",w6t:"أدوات احترافية",w6d:"Photoshop وIllustrator وInDesign، ومعاهم أدوات الذكاء الاصطناعي لسرعة وجودة أعلى.",ses:"جلسة مجانية",sesT:"اطلب جلسة مجانية",sesP:"نتكلم على Zoom أو Discord أو Google Meet، وأشرحلك تفاصيل شغلك وأسمع فكرتك قبل ما نبدأ.",sesB:"اطلب الجلسة",fPl:"المنصة المفضلة",fPlPh:"اختار المنصة...",fOk:"تم إرسال طلبك ✓",lblB:"قبل",lblA:"بعد",waMsg:"مرحبا اريد العمل معاك",sNote:"ملاحظات (اختياري)",sSend:"إرسال الطلب",sOk:"تم الإرسال، وهنتواصل مع حضرتك في أقرب وقت ممكن لتحديد معاد الجلسة.",fErr:"حصل خطأ في الإرسال، جرّب مرة تانية.",gsT:"ابدأ معايا",gsP:"كل اللي محتاجه عشان أبدأ:",g1:"فكرة التصميم أو العنوان",g1h:"اكتبلي الفكرة أو عنوان الفيديو أو موضوع التصميم.",g2:"النص المطلوب كتابته (اختياري)",g2h:"أي كلام عايزه يظهر على التصميم.",g3:"تصميم مرجعي (اختياري)",g3h:"ابعتلي مثال عاجبك عشان أمشي على نفس الروح.",g4:"الألوان أو الستايل المفضل",g4h:"ألوان معينة أو إحساس عام زي هادي أو جريء.",g5:"ملفات تستخدمها (اختياري)",g5h:"لوجو أو صور أو خطوط عندك.",g6:"موعد التسليم",g6h:"إمتى محتاج التصميم يكون جاهز؟",fT:"ابعتلي رسالة",fName:"اسمك",fMail:"إيميلك أو واتساب",fSvc:"الخدمة",fSvcPh:"اختار الخدمة...",fPk:"الباكج",fPkPh:"اختار الباكج...",fDate:"معاد التسليم المطلوب",fDn:"التسليم بعد 24 ساعة من الطلب. ولو مقدرناش نلتزم بالمعاد هنتواصل مع حضرتك ونعرّف حضرتك بالمعاد المتاح للتسليم.",fMsg:"احكيلي عن مشروعك",fNameP:"اسمك",fMailP:"you@email.com",fMsgP:"لينك القناة، المجال، موضوع الفيديو، أمثلة عاجباك...",fSend:"إرسال الرسالة",fSub:"طلب جديد من البورتفوليو",fNote:"الزرار بيفتح تطبيق الإيميل عندك برسالة جاهزة. لو مفتحش ابعت على:",name:"محمد محسن",role:"جونيور جرافيك ديزاينر في مجال السوشيال ميديا والصور المصغرة لليوتيوب",cta:"تواصل معايا",photo:"مكان صورتك هنا",aboutT:"نبذة عني",aboutP:"أنا محمد محسن، مصمم جرافيك متخصص في الصور المصغرة لليوتيوب وتصاميم السوشيال ميديا، بخبرة أكثر من 3 سنوات. أحوّل فكرتك إلى تصميم لافت يرفع فرص النقر، بسرعة وجودة عالية.",s1:"عميل",s2:"سنين خبرة",s3:"تصميم",workT:"أعمالي",workP:"أي مجال، كل تصميم مبني عشان يلفت النظر.",toolsT:"الأدوات",toolsP:"البرامج اللي بشتغل بيها.",priceT:"الأسعار",contactT:"خلينا نشتغل سوا",contactP:"اختار الطريقة الأنسب للتواصل.",wa:"واتساب",fb:"فيسبوك",ig:"إنستجرام",be:"بيهانس",ds:"ديسكورد",foot:"© 2026 محمد محسن",pr:["بوست سوشيال ميديا","صورة مصغرة ليوتيوب","غلاف كتاب أو ملزمة","تصميم إعلاني"],pv:"السعر هنا"},
+en:{abDT:"What I design",ab1:"YouTube thumbnails",ab2:"Social media designs",ab3:"Book covers",ab4:"Study-material covers",ab5:"Ad designs",abWT:"How I work",abw1:"I understand your idea and project first, and you can request a free session to go over the details.",abw2:"I design every piece from scratch, with no ready-made templates.",abw3:"I focus on raising clicks: a clear main element, strong contrast, and short text.",abw4:"Fast replies and on-time delivery.",abw5:"Tools: Photoshop · Illustrator · InDesign",follow:"Follow me",revT:"Client reviews",revP:"Real chats with clients I\u2019ve worked with.",nHome:"Home",nWork:"My work",nPrice:"Pricing",nAbout:"About me",nExp:"Experience",nTools:"Tools",nCv:"CV",nContact:"Contact",cv:"Download CV",start:"Get started",hi:"Hello!",n1:"Mohamed",n2:"Mohsen",l1:"Junior",l2:"Graphic Designer",wk:"My work",whyT:"Why choose me?",whyP:"Simple reasons to trust my work.",w1t:"Fast replies, on-time delivery",w1d:"I reply quickly and deliver on schedule, without compromising quality.",w2t:"Designed from scratch",w2d:"Every design is built around your idea, with no ready-made templates, so it stands out.",w3t:"Focused on raising CTR",w3d:"A clear main element, strong contrast, and short text that stands out among dozens of videos.",w4t:"Experience with teachers and educational channels",w4d:"Over 3 years of experience, more than 300 clients, and more than 1000 designs.",w5t:"I understand your idea first",w5d:"I learn about your video or project and its identity first, and you can request a free session to go through the details.",w6t:"Professional tools",w6d:"Photoshop, Illustrator and InDesign, plus AI tools for higher speed and quality.",ses:"Free session",sesT:"Request a free session",sesP:"We talk on Zoom, Discord or Google Meet, and I go through the details of your project and hear your idea before we start.",sesB:"Request a session",fPl:"Preferred platform",fPlPh:"Choose a platform…",fOk:"Request sent ✓",lblB:"Before",lblA:"After",waMsg:"Hello, I want to work with you",sNote:"Notes (optional)",sSend:"Send request",sOk:"Sent. We will contact you as soon as possible to set the session time.",fErr:"Something went wrong, please try again.",gsT:"Get started",gsP:"All I need to get started:",g1:"Your design idea or title",g1h:"Tell me the idea, video title or topic of the design.",g2:"Text to include (optional)",g2h:"Any wording you want on the design.",g3:"Reference design (optional)",g3h:"Send an example you like so I can match the feel.",g4:"Preferred colors or style",g4h:"Specific colors or a general mood, calm or bold.",g5:"Assets to use (optional)",g5h:"Logo, photos or fonts you already have.",g6:"Your deadline",g6h:"When do you need the design ready?",fT:"Send me a message",fName:"Your name",fMail:"Email or WhatsApp",fSvc:"Service",fSvcPh:"Choose a service…",fPk:"Package",fPkPh:"Choose a package…",fDate:"Requested delivery date",fDn:"Delivery starts 24 hours after the order. If we cannot meet your date, we will contact you with the earliest available date.",fMsg:"Tell me about your project",fNameP:"Your name",fMailP:"you@email.com",fMsgP:"Channel link, niche, topic, style references…",fSend:"Send message",fSub:"New request from portfolio",fNote:"This button opens your email app with a ready message. If it does not open, write to:",name:"Mohamed Mohsen",role:"Junior graphic designer in social media and YouTube thumbnails",cta:"Contact me",photo:"Your photo goes here",aboutT:"About me",aboutP:"I’m Mohamed Mohsen, a graphic designer specializing in YouTube thumbnails and social media designs, with over 3 years of experience. I turn your idea into an eye-catching design that boosts clicks, fast and at high quality.",s1:"Clients",s2:"Years of experience",s3:"Designs",workT:"My work",workP:"Any niche, every design is built to stand out.",toolsT:"Tools",toolsP:"The software I work with.",priceT:"Pricing",contactT:"Let’s work together",contactP:"Pick the way that suits you best.",wa:"WhatsApp",fb:"Facebook",ig:"Instagram",be:"Behance",ds:"Discord",foot:"© 2026 Mohamed Mohsen",pr:["Social media post","YouTube thumbnail","Book or study-notes cover","Ad design"],pv:"Price here"}
 };
 var CATS=[{ar:"الصور المصغرة",en:"Thumbnails",r:"16/9",h:225,n:6,f:["thumbnails/1.jpg","thumbnails/2.jpg","thumbnails/3.jpg","thumbnails/4.jpg","thumbnails/5.jpg","thumbnails/6.jpg","thumbnails/7.jpg","thumbnails/8.jpg","thumbnails/10.jpg","thumbnails/12.jpg","thumbnails/13.jpg","thumbnails/14.jpg","thumbnails/15.jpg","thumbnails/16.jpg","thumbnails/17.jpg","thumbnails/18.jpg","thumbnails/19.jpg","thumbnails/20.jpg","thumbnails/21.jpg","thumbnails/22.jpg","thumbnails/23.jpg","thumbnails/24.jpg","thumbnails/25.jpg"]},{ar:"بوستات السوشيال ميديا",en:"Social media posts",r:"4/5" /* المقاس عرض/طول مثل 4/5 وh هو ارتفاع الصورة بالبكسل */,h:440,n:8,f:["social/1.jpg","social/2.jpg","social/3.jpg","social/4.jpg"]},{ar:"أغلفة الكتب",en:"Book covers",r:"3/4",h:380,n:8,f:["books/1.jpg","books/2.jpg","books/3.jpg","books/4.jpg","books/5.jpg","books/6.jpg","books/7.jpg","books/8.jpg","books/9.jpg","books/10.jpg","books/11.jpg","books/12.jpg","books/13.jpg","books/14.jpg","books/15.jpg"]}]; /* f: أسماء الصور | h: ارتفاع الصورة | r: المقاس عرض/طول | n: عدد الصور في الصف قبل ما يبدأ صف جديد */
 var cat=0,THUMBS=CATS[0].f;
@@ -374,7 +591,7 @@ var selPk=1;document.getElementById("prices").onchange=function(e){selPk=+e.targ
 function pkHtml(){var i=lang==="ar"?0:1;var sel=PK.map(function(k,j){return '<input type="radio" name="pk" id="pk'+j+'" data-j="'+j+'"'+(j===selPk?' checked':'')+'><label for="pk'+j+'">'+k.n[i]+'</label>'}).join("");return '<div class="pkwrap"><div class="radio-container">'+sel+'<div class="glider-container"><div class="glider"></div></div></div><div class="pk">'+PK.map(function(k,j){return '<div class="pc'+(j===selPk?' hot':'')+'" data-j="'+j+'"><span class="pb">'+k.b[i]+'</span><h3>'+k.n[i]+'</h3><small>'+k.s[i]+'</small><div class="pp"><sup>$</sup>'+k.p+'</div><small>'+k.u[i]+'</small><ul>'+k.f.map(function(f){return '<li'+(f[2]?'':' class="no"')+'>'+f[i]+'</li>'}).join("")+'</ul><a class="btn" href="#contact">'+T[lang].start+'</a></div>'}).join("")+'</div></div><div class="ses"><div><h3>'+T[lang].sesT+'</h3><p>'+T[lang].sesP+'</p></div><button class="btn" type="button" data-ses="1">'+T[lang].sesB+'</button></div>'}
 function tabs(){document.getElementById("tabs").innerHTML=CATS.map(function(c,i){return '<button type="button" data-c="'+i+'" aria-pressed="'+(i===cat)+'">'+c[lang]+'</button>'}).join("")}
 document.getElementById("tabs").onclick=function(e){var b=e.target.closest("button");if(!b)return;cat=+b.dataset.c;THUMBS=CATS[cat].f;build();document.querySelectorAll(".bar u").forEach(function(u){u.style.width=u.dataset.w+"%"});tabs()};
-var TOOLS=[["Ps","Photoshop",95],["Ai","Illustrator",90],["Lr","Lightroom",85],["Bl","Blender",80,"icons/blender.png"],["Kr","Krea",85,"icons/krea.png"]];
+var TOOLS=[["Ps","Photoshop",95],["Ai","Illustrator",90],["Lr","Lightroom",85],["Id","InDesign",85,"icons/indesign.png"],["Bl","Blender",80,"icons/blender.png"],["Kr","Krea",85,"icons/krea.png"],["Cl","Claude",90,"icons/claude.png"],["Ge","Gemini",90,"icons/gemini.png"],["GP","ChatGPT",90,"icons/chatgpt.png"],["Mg","Magnific",85,"icons/magnific.png"]];
 var lang="ar",root=document.documentElement;
 function build(){
   var c=CATS[cat],rp=c.r.split("/"),TS="--h:"+c.h+"px;--r:"+c.r+";--rn:"+(rp[0]/rp[1]),ZM='<button class="zm" type="button" aria-label="zoom"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></button>';
@@ -391,11 +608,11 @@ function build(){
 }
 function render(){
   var d=T[lang];
-  root.lang=lang;root.dir=lang==="ar"?"rtl":"ltr";
+  root.lang=lang;root.dir="rtl";root.classList.toggle("en",lang==="en");
   document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=d[e.dataset.i]});
   document.getElementById("lang").textContent=lang==="ar"?"EN":"عربي";
   document.getElementById("prices").innerHTML=pkHtml();
-  document.title=d.name;tabs();svcs();ph();var wb=document.getElementById("wab");if(wb)wb.href="https://wa.me/201122524011?text="+encodeURIComponent(d.waMsg);
+  document.title=d.name;tabs();svcs();ph();document.querySelectorAll("#wab,a[data-wa]").forEach(function(a){a.href="https://wa.me/201122524011?text="+encodeURIComponent(d.waMsg)});
   document.querySelectorAll(".stat b").forEach(function(b){if(b.dataset.done)b.textContent=b.dataset.to+(b.dataset.plus?"+":"")});
 }
 document.getElementById("lang").onclick=function(){lang=lang==="ar"?"en":"ar";render()};
@@ -440,6 +657,31 @@ document.getElementById("prices").addEventListener("click",function(e){if(e.targ
 sm.onclick=function(e){if(e.target===sm||e.target.id==="smx")sm.hidden=true};
 document.getElementById("mb").onclick=function(){var o=document.querySelector(".nav").classList.toggle("open");this.setAttribute("aria-expanded",String(o))};
 document.querySelector(".nl").onclick=function(e){var al=e.target.closest("a");if(al){if(al.getAttribute("href")==="#pricing")document.getElementById("pricing").open=true;document.querySelector(".nav").classList.remove("open");document.getElementById("mb").setAttribute("aria-expanded","false")}};
+(function(){var links=[].slice.call(document.querySelectorAll('.nl a[href^="#"]')),tick=false;
+function spy(){tick=false;var cur=null,c=document.getElementById("contact");
+if(!(c&&c.getBoundingClientRect().top<=160)){links.forEach(function(a){var el=document.getElementById(a.getAttribute("href").slice(1));if(!el||a.hidden||el.closest("[hidden]"))return;if(el.getBoundingClientRect().top<=160)cur=a});if(!cur)cur=links[0]}
+links.forEach(function(a){a.classList.toggle("active",a===cur);if(a===cur)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")})}
+addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(spy)}},{passive:true});addEventListener("resize",spy);spy()})();
+(function(){var a=document.getElementById("ftmail");if(CONTACT_EMAIL){a.href="mailto:"+CONTACT_EMAIL;a.textContent=CONTACT_EMAIL;a.hidden=false}})();
+(function(){var box=document.getElementById("rv"),sec=box.closest("section");
+if(!SHOW_REVIEWS){sec.hidden=true;return}
+var n=REVIEWS.length||3,h="",i,ic='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>';
+for(i=0;i<n;i++)h+=REVIEWS[i]?'<button type="button" class="ph" data-src="'+REVIEWS[i]+'"><img loading="lazy" alt="" src="'+REVIEWS[i]+'"></button>':'<div class="ph empty">'+ic+'</div>';
+box.innerHTML=h;
+var m=document.createElement("div");m.className="modal";m.hidden=true;
+m.innerHTML='<div class="mc"><button class="mx" type="button" aria-label="close">\u2715</button><img id="rvi" alt="" style="width:100%;display:block;border-radius:20px"></div>';
+document.body.appendChild(m);
+box.onclick=function(e){var b=e.target.closest("button.ph");if(b){document.getElementById("rvi").src=b.dataset.src;m.hidden=false}};
+m.onclick=function(e){if(e.target===m||e.target.classList.contains("mx"))m.hidden=true};
+addEventListener("keydown",function(e){if(e.key==="Escape")m.hidden=true})})();
+(function(){if(!matchMedia("(hover:hover) and (pointer:fine)").matches)return;
+var d=document.createElement("div");d.className="cdot";d.setAttribute("aria-hidden","true");document.body.appendChild(d);
+var x=0,y=0,cx=0,cy=0,sc=1,ts=1,on=false,k=matchMedia("(prefers-reduced-motion:reduce)").matches?1:.2;
+function loop(){cx+=(x-cx)*k;cy+=(y-cy)*k;sc+=(ts-sc)*.2;d.style.transform="translate3d("+cx+"px,"+cy+"px,0) translate(-50%,-50%) scale("+sc+")";requestAnimationFrame(loop)}
+addEventListener("mousemove",function(e){x=e.clientX;y=e.clientY;if(!on){on=true;cx=x;cy=y;d.classList.add("on");loop()}
+var t=e.target.closest&&e.target.closest("a,button,summary,input,textarea,select,label");ts=t?2:1;d.classList.toggle("big",!!t)},{passive:true});
+document.documentElement.addEventListener("mouseleave",function(){d.classList.remove("on")});
+document.documentElement.addEventListener("mouseenter",function(){if(on)d.classList.add("on")})})();
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
   if(e.target.id==="stats")e.target.querySelectorAll("b").forEach(count);
   if(e.target.id==="tools")e.target.querySelectorAll("u").forEach(function(u){u.style.width=u.dataset.w+"%"});
